@@ -39,7 +39,38 @@
 ### Step 12: 
   Stop
 # Program:
+#include <stdio.h>
+
+void valueSwap(int a, int b) {
+    int temp = a;
+    a = b;
+    b = temp;
+    printf("In function: a=%d b=%d\n", a, b);
+}
+
+void refSwap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+    printf("In function: *a=%d *b=%d\n", *a, *b);
+}
+
+int main() {
+    int x = 10, y = 20;
+    
+    printf("Start: x=%d y=%d\n\n", x, y);
+    
+    valueSwap(x, y);
+    printf("After valueSwap: x=%d y=%d\n\n", x, y);
+    
+    refSwap(&x, &y);
+    printf("After refSwap: x=%d y=%d\n", x, y);
+    
+    return 0;
+}
 # Output:
+<img width="465" height="397" alt="image" src="https://github.com/user-attachments/assets/7f78573f-ecad-4a46-bfe3-0872dc0719d2" />
+
 # Result: 
   Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -77,7 +108,34 @@
 ### Step 10:
   Stop
 # Program:
+#include <stdio.h>
+
+int fib(int n) {
+    if(n <= 1) {
+        return n;
+    }
+    return fib(n-1) + fib(n-2);
+}
+
+int main() {
+    int n, i;
+    
+    printf("How many Fibonacci numbers? ");
+    scanf("%d", &n);
+    
+    printf("First %d Fibonacci numbers:\n", n);
+    
+    for(i = 0; i < n; i++) {
+        printf("%d ", fib(i));
+    }
+    
+    printf("\n");
+    
+    return 0;
+}
 # Output:
+<img width="465" height="272" alt="image" src="https://github.com/user-attachments/assets/5c412b3f-0a2c-4e63-af81-854285c6a270" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -119,7 +177,49 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 12:
   Stop
 # Program:
+#include <stdio.h>
+
+void printNumbers(int start, int end) {
+    if(start > end) {
+        return;
+    }
+    
+    printf("%d ", start);
+    
+    printNumbers(start + 2, end);
+}
+
+int main() {
+    int start, end;
+    
+    printf("Enter starting number: ");
+    scanf("%d", &start);
+    
+    printf("Enter ending number: ");
+    scanf("%d", &end);
+    
+    if(start % 2 == 0) {
+        printf("\nEven numbers from %d to %d:\n", start, end);
+        if(start % 2 != 0) {
+            start = start + 1;
+        }
+    }
+    else {
+        printf("\nOdd numbers from %d to %d:\n", start, end);
+        if(start % 2 == 0) {
+            start = start + 1;
+        }
+    }
+    
+    printNumbers(start, end);
+    
+    printf("\n");
+    
+    return 0;
+}
 # Output:
+<img width="444" height="356" alt="image" src="https://github.com/user-attachments/assets/75377e5d-5dfd-4e79-a71e-598c41f2ed86" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -161,7 +261,38 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 11:
   Stop
 # Program:
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n, sum = 0;
+    int *arr;
+    
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    
+    arr = (int*)calloc(n, sizeof(int));
+    
+    if(arr == NULL) {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+    
+    printf("Enter %d elements: ", n);
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+        sum += arr[i];
+    }
+    
+    printf("Sum: %d\n", sum);
+    
+    free(arr);
+    
+    return 0;
+}
 # Output:
+<img width="390" height="318" alt="image" src="https://github.com/user-attachments/assets/f53649ed-a459-476f-8c80-e675e452f64a" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -197,6 +328,31 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 10:
   Stop
 # Program:
+#include <stdio.h>
+
+void printArray(int arr[], int n) {
+    for(int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    
+    int a[n];
+    
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+    
+    printArray(a, n);
+    
+    return 0;
+}
 # Output:
+
+<img width="365" height="115" alt="image" src="https://github.com/user-attachments/assets/8a60e384-8ca3-44a1-98ef-a55e285f8e11" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
